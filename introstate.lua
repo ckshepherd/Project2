@@ -1,6 +1,8 @@
 
 TitleScreen = {}
 
+local self = TitleScreen;
+
 function TitleScreen.start()
   self.objects = {}
   self.co = coroutine.wrap(function()
@@ -29,6 +31,7 @@ end
 
 function wait(seconds)
   while seconds > 0 do
-    seconds = seconds - coroutine.yield(true)
+	local dt = coroutine.yield(true)
+    seconds = seconds - dt
   end
-end  
+end
